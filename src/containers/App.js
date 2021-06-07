@@ -19,10 +19,15 @@ const App =()=> {
   //     .then(response=> response.json())
   //     .then(users => {this.setState({ robots: users})});
   // }
+  useEffect(()=>{
+      fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response=> response.json())
+      .then(users => {setRobots( users)});
+  },[])
 
 
   const onSearchChange = (event) => {
-    searchfield(event.target.value)
+    setSearchfield(event.target.value)
   }
 
     const filteredRobots = robots.filter(robot =>{
